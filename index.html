@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Shinde | AI/ML Engineer</title>
+<meta name="description" content="AI/ML Engineer building GenAI and classical ML systems for financial services and manufacturing: RAG, anomaly detection, predictive maintenance. Two live, interactive projects.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ayush Shinde | AI/ML Engineer">
+<meta property="og:description" content="ML systems that hold up when people rely on them. Try two live projects: a failure early-warning system and a support-ticket triage AI that knows when not to answer.">
+<meta property="og:image" content="https://aayshinde.github.io/assets/og.png">
+<meta property="og:url" content="https://aayshinde.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236ea8ff'/%3E%3Cstop offset='1' stop-color='%23b18cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='800' font-size='30' text-anchor='middle' fill='%230b0f14'%3EAS%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Ayush Shinde","jobTitle":"AI/ML Engineer","url":"https://aayshinde.github.io/","sameAs":["https://github.com/aayshinde","https://www.linkedin.com/in/ayush-shinde-70295b344/"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Texas at Arlington"},{"@type":"CollegeOrUniversity","name":"University of Mumbai"}],"worksFor":{"@type":"Organization","name":"JPMorgan Chase & Co."}}
+</script>
+<style>
+:root{
+  --bg:#0b0f14; --bg2:#10161e; --panel:#121820; --line:#232d3a; --text:#e8eef5; --muted:#9aa7b6;
+  --accent:#6ea8ff; --accent2:#b18cff; --ok:#2dd4a7; --warn:#f5b84b;
+  --grad:linear-gradient(135deg,#6ea8ff,#b18cff);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+}
+:root[data-theme="light"]{
+  --bg:#f7f9fc; --bg2:#eef2f8; --panel:#ffffff; --line:#d9e1ec; --text:#0f1722; --muted:#4a586a;
+  --accent:#2563eb; --accent2:#7c3aed; --ok:#047857; --warn:#b45309;
+  --grad:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f7f9fc; --bg2:#eef2f8; --panel:#ffffff; --line:#d9e1ec; --text:#0f1722; --muted:#4a586a;
+    --accent:#2563eb; --accent2:#7c3aed; --ok:#047857; --warn:#b45309;
+    --grad:linear-gradient(135deg,#2563eb,#7c3aed);
+  }
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#08121f;padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--text)}
+.brand i{width:30px;height:30px;border-radius:8px;background:var(--grad);display:grid;place-items:center;color:#0b0f14;font-style:normal;font-weight:800;font-size:13px}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{color:var(--muted);padding:8px 12px;border-radius:8px;font-size:14px}
+.nav ul a:hover,.nav ul a.on{color:var(--text);background:var(--panel);text-decoration:none}
+.iconbtn{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;width:38px;height:38px;cursor:pointer;font-size:16px}
+.iconbtn:hover{border-color:var(--accent)}
+.menu{display:none}
+@media(max-width:820px){
+  .menu{display:inline-block;margin-left:auto}
+  .nav ul{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 24px 16px;margin:0}
+  .nav ul.open{display:flex}
+}
+
+/* hero */
+.hero{position:relative;padding:84px 0 56px;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-20% -10% auto -10%;height:520px;background:radial-gradient(600px 300px at 20% 30%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%),radial-gradient(500px 280px at 80% 10%,color-mix(in srgb,var(--accent2) 20%,transparent),transparent 70%);pointer-events:none}
+.eyebrow{font:600 13px var(--mono);color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.04;margin:14px 0 18px;letter-spacing:-.02em}
+h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:720px;margin:0 0 28px}
+.lead b{color:var(--text);font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;border:1px solid var(--line);color:var(--text);background:var(--panel)}
+.btn:hover{border-color:var(--accent);text-decoration:none;transform:translateY(-1px)}
+.btn.primary{background:var(--grad);color:#08121f;border-color:transparent}
+:root[data-theme="light"] .btn.primary{color:#fff}
+.meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;color:var(--muted);font-size:14px}
+.meta span:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:1px}
+
+.stats{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.stat{background:var(--panel);padding:20px 22px}
+.stat b{display:block;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:14px}
+.foot{color:var(--muted);font-size:12.5px;margin-top:10px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:76px 0}
+section.alt{background:var(--bg2);border-block:1px solid var(--line)}
+.kicker{font:600 12.5px var(--mono);color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(28px,4vw,40px);letter-spacing:-.015em;margin:8px 0 12px;line-height:1.15}
+.sub{color:var(--muted);max-width:720px;margin:0 0 36px;font-size:17px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card h3{margin:0 0 8px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.ico{width:40px;height:40px;border-radius:11px;background:color-mix(in srgb,var(--accent) 16%,transparent);display:grid;place-items:center;font-size:20px;margin-bottom:14px}
+
+/* projects */
+.project{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:28px}
+.p-head{padding:28px 28px 8px}
+.tag{display:inline-block;font:600 12px var(--mono);padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--accent2) 16%,transparent);color:var(--accent2);margin-bottom:10px}
+.project h3{font-size:26px;margin:0 0 6px;letter-spacing:-.01em}
+.thirty{color:var(--text);font-size:17px;margin:0 0 4px}
+.p-body{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;padding:20px 28px 28px;align-items:start}
+@media(max-width:940px){.p-body{grid-template-columns:1fr}}
+.facts{display:grid;gap:14px;margin:0 0 18px}
+.fact{display:grid;grid-template-columns:86px 1fr;gap:12px;font-size:15px}
+.fact b{color:var(--accent);font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding-top:3px}
+.fact span{color:var(--muted)} .fact span strong{color:var(--text)}
+.decisions{margin:0 0 18px;padding:0;list-style:none;display:grid;gap:8px}
+.decisions li{font-size:14.5px;color:var(--muted);padding-left:22px;position:relative}
+.decisions li:before{content:"→";position:absolute;left:0;color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.chip{font:12.5px var(--mono);padding:5px 10px;border-radius:8px;border:1px solid var(--line);color:var(--muted);background:var(--bg)}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.media{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#05080c;aspect-ratio:16/11}
+.media img,.media iframe{width:100%;height:100%;border:0;display:block;object-fit:cover;object-position:top}
+.launch{position:absolute;inset:auto 14px 14px auto}
+.launch button{cursor:pointer;font:600 14px var(--sans);padding:10px 16px;border-radius:10px;border:0;background:var(--grad);color:#08121f;box-shadow:0 8px 30px #0008}
+.badge-live{position:absolute;left:14px;top:14px;font:600 11px var(--mono);letter-spacing:.1em;background:#0009;color:#fff;padding:5px 10px;border-radius:99px;backdrop-filter:blur(6px)}
+.badge-live:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:7px}
+.caption{color:var(--muted);font-size:12.5px;margin-top:8px}
+
+/* timeline */
+.tl{position:relative;margin-left:8px;border-left:2px solid var(--line);padding-left:28px;display:grid;gap:34px}
+.job{position:relative}
+.job:before{content:"";position:absolute;left:-37px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 4px var(--bg)}
+section.alt .job:before{box-shadow:0 0 0 4px var(--bg2)}
+.job h3{margin:0;font-size:20px} .job .org{color:var(--accent)} .job .when{font:13px var(--mono);color:var(--muted);margin:2px 0 10px}
+.job ul{margin:0;padding-left:20px;color:var(--muted);display:grid;gap:7px;font-size:15.5px} .job li::marker{color:var(--accent)}
+.job li b{color:var(--text);font-weight:600}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.skills{grid-template-columns:1fr}}
+.skill h3{font:600 12.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.skill .chips{margin:0}
+
+/* edu + contact */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{font-size:15px;color:var(--muted)} .list li b{display:block;color:var(--text);font-size:16px}
+.contact{text-align:center}
+.contact .sub{margin-inline:auto}
+.contact .cta{justify-content:center}
+footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center;border-top:1px solid var(--line)}
+
+.reveal{transform:translateY(14px);transition:transform .6s ease}   /* slide only: content is never hidden if JS or the observer doesn't run */
+.reveal.in{transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{transform:none;transition:none} html{scroll-behavior:auto} .btn:hover{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><i>AS</i> Ayush Shinde</a>
+    <button class="iconbtn menu" id="menu" aria-label="Menu" aria-expanded="false">☰</button>
+    <ul id="links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#credentials">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="iconbtn" id="theme" aria-label="Toggle light and dark theme" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">AI / ML Engineer · Texas, USA</div>
+    <h1>I build ML systems that <span>hold up when people rely on them.</span></h1>
+    <p class="lead">I'm an AI/ML engineer at <b>JPMorgan Chase</b>, working on GenAI and classical ML for financial services and manufacturing: <b>RAG assistants, anomaly detection and predictive maintenance</b>. I care about evaluation that is honest and models that know when not to answer.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">See live projects ↓</a>
+      <a class="btn" href="assets/Ayush_Shinde_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn" href="mailto:ayush.s@itjobinbox.com">Email me</a>
+    </div>
+    <div class="meta"><span>M.S. Data Science, UT Arlington</span><span>2.5+ years in production ML</span><span>Two projects you can try in your browser</span></div>
+
+    <div class="stats" role="list" aria-label="Headline results">
+      <div class="stat" role="listitem"><b data-count="85" data-suffix="%">85%</b><span>of 462 failures caught, with a median 20 h warning</span></div>
+      <div class="stat" role="listitem"><b data-count="0.18" data-dec="2">0.18</b><span>false alerts per machine per month</span></div>
+      <div class="stat" role="listitem"><b>27% → 92%</b><span>doc-retrieval hit rate after the agent redesign</span></div>
+      <div class="stat" role="listitem"><b data-count="98" data-suffix="%">98%</b><span>of out-of-scope tickets escalated to a human, not guessed</span></div>
+    </div>
+    <p class="foot">Results come from the two projects below, measured on held-out data (the failure project uses a simulated fleet). Each links to its code and a reproducible report.</p>
+  </div>
+</section>
+
+<section class="alt" id="value">
+  <div class="wrap">
+    <div class="kicker">What I bring</div>
+    <h2>Three things I do well</h2>
+    <p class="sub">Whether it is fraud, maintenance or support, the work usually comes down to the same three skills.</p>
+    <div class="grid3">
+      <div class="card reveal"><div class="ico">🚀</div><h3>Ship ML to production</h3><p>Containerized inference, CI/CD, experiment tracking and drift checks. At Siemens I built real-time anomaly detection for 2,000+ assets on Docker and Azure AKS.</p></div>
+      <div class="card reveal"><div class="ico">🧪</div><h3>Build GenAI that is measured</h3><p>RAG with retrieval evaluation, groundedness checks and abstention, so the system cites evidence or hands off to a person instead of guessing.</p></div>
+      <div class="card reveal"><div class="ico">🧱</div><h3>Engineer data at scale</h3><p>PySpark feature pipelines on EMR with Airflow, from 500GB+ of IoT telemetry to transaction data, with validation so models train on clean inputs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="kicker">Selected work</div>
+    <h2>Two projects you can try right now</h2>
+    <p class="sub">Both run in your browser. No install, no login. Press the button on each to open it right here.</p>
+
+    <article class="project reveal">
+      <div class="p-head">
+        <span class="tag">PREDICTIVE MAINTENANCE · AGENTS</span>
+        <h3>Predictive Failure &amp; Root-Cause Agent</h3>
+        <p class="thirty"><b>In 30 seconds:</b> an early-warning system for factory machines. It warns maintenance teams about a day before a machine breaks, and when one does break, an AI assistant explains the likely cause and shows its evidence.</p>
+      </div>
+      <div class="p-body">
+        <div>
+          <div class="facts">
+            <div class="fact"><b>Problem</b><span>Breakdowns are costly and the clues are spread across sensors, error logs and repair manuals.</span></div>
+            <div class="fact"><b>Built</b><span>Models that watch 100 simulated machines (<strong>XGBoost</strong> risk scoring, a <strong>PyTorch LSTM</strong> anomaly detector) plus a <strong>LangGraph</strong> agent that gathers evidence and answers with citations.</span></div>
+            <div class="fact"><b>Result</b><span><strong>85%</strong> of 462 failures caught with a <strong>median 20 h</strong> of notice and <strong>0.18</strong> false alerts per machine per month. Agent answers are backed by evidence far more often than a plain ReAct baseline (unsupported claims <strong>15.6% → 3.1%</strong>).</span></div>
+          </div>
+          <ul class="decisions">
+            <li>Time-based train/test split, plus a test proving the tools cannot see future data</li>
+            <li>Judged on operator experience (warning time, false alarms), not only AUROC</li>
+            <li>A verifier sends unsupported claims back for revision; runs free on a local LLM</li>
+          </ul>
+          <div class="chips"><span class="chip">XGBoost</span><span class="chip">PyTorch</span><span class="chip">LangGraph</span><span class="chip">FAISS</span><span class="chip">FastAPI</span><span class="chip">GitHub Actions</span><span class="chip">Ollama</span></div>
+          <div class="links"><a class="btn primary" href="https://aayshinde.github.io/failure-rca-agent/" target="_blank" rel="noopener">Open full demo ↗</a><a class="btn" href="https://github.com/aayshinde/failure-rca-agent" target="_blank" rel="noopener">Code on GitHub</a></div>
+        </div>
+        <div>
+          <div class="media" id="m1">
+            <img src="assets/failure-agent-demo.gif" alt="Animated demo: the risk map for 100 machines changes as time advances toward a real failure, then the AI agent explains the cause" loading="lazy">
+            <span class="badge-live">LIVE DEMO</span>
+            <div class="launch"><button data-src="https://aayshinde.github.io/failure-rca-agent/#m=M013" data-target="m1">▶ Try it here</button></div>
+          </div>
+          <p class="caption">Drag the clock, click a machine, replay a real failure. Simulated fleet; the test period was never seen in training.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-head">
+        <span class="tag">RAG · LLM EVALUATION</span>
+        <h3>RAG Support Insights &amp; LLM Evaluation</h3>
+        <p class="thirty"><b>In 30 seconds:</b> an AI helper for customer-support teams. It reads a new ticket, finds similar past tickets and how they were solved, and suggests the next step. If it is not confident, it hands the ticket to a person instead of guessing.</p>
+      </div>
+      <div class="p-body">
+        <div>
+          <div class="facts">
+            <div class="fact"><b>Problem</b><span>Agents lose time hunting for how similar issues were handled, and an AI that guesses wrong makes things worse.</span></div>
+            <div class="fact"><b>Built</b><span>Search over <strong>48,178</strong> past tickets with <strong>FAISS</strong>, a local LLM that drafts a cited next-best-action, and a <strong>two-stage gate</strong> that escalates weak-evidence cases to a human.</span></div>
+            <div class="fact"><b>Result</b><span><strong>91.4%</strong> correct on the tickets it answers (87% of queries), and <strong>98%</strong> of out-of-scope messages escalated instead of answered. Runs at $0.</span></div>
+          </div>
+          <ul class="decisions">
+            <li>Evaluated on held-out tickets that were never indexed, against baselines and stress tests</li>
+            <li>Reports where it fails, not only where it works</li>
+            <li>Full stack runs locally: Ollama, FastAPI and a Streamlit dashboard</li>
+          </ul>
+          <div class="chips"><span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">Ollama</span><span class="chip">FastAPI</span><span class="chip">Streamlit</span><span class="chip">scikit-learn</span></div>
+          <div class="links"><a class="btn primary" href="https://aayshinde.github.io/rag-support-insights/" target="_blank" rel="noopener">Open full demo ↗</a><a class="btn" href="https://github.com/aayshinde/rag-support-insights" target="_blank" rel="noopener">Code on GitHub</a></div>
+        </div>
+        <div>
+          <div class="media" id="m2">
+            <img src="assets/rag-demo.png" alt="Screenshot of the RAG project's results page showing 91.4% correct on answered tickets and 98% of out-of-scope messages escalated" loading="lazy">
+            <span class="badge-live">LIVE DEMO</span>
+            <div class="launch"><button data-src="https://aayshinde.github.io/rag-support-insights/" data-target="m2">▶ Try it here</button></div>
+          </div>
+          <p class="caption">The page is built from the project's real measured results, including its failure analysis.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="alt" id="experience">
+  <div class="wrap">
+    <div class="kicker">Experience</div>
+    <h2>Where I've done this for real</h2>
+    <p class="sub">Production ML in finance and manufacturing.</p>
+    <div class="tl">
+      <div class="job reveal">
+        <h3>AI/ML Engineer · <span class="org">JPMorgan Chase &amp; Co.</span></h3>
+        <div class="when">Feb 2026 – Present · Texas</div>
+        <ul>
+          <li>Contribute to a <b>retrieval-augmented generation assistant</b> over internal policy and operations documentation (Python, LangChain, AWS Bedrock, OpenSearch), owning retrieval evaluation and the chunking strategy adopted for the production index.</li>
+          <li>Tune <b>gradient-boosted classifiers</b> (XGBoost, LightGBM) on 2M+ transaction records for anomaly and risk-flag detection, improving PR-AUC by 9% over the incumbent baseline and documenting assumptions for Model Risk review.</li>
+          <li>Build <b>PySpark feature pipelines</b> on AWS EMR with Airflow, add MLflow tracking and post-deployment drift checks, cutting training data prep from 6 hours to 45 minutes.</li>
+        </ul>
+      </div>
+      <div class="job reveal">
+        <h3>ML Engineer · <span class="org">Siemens</span></h3>
+        <div class="when">Aug 2022 – Jul 2024 · India</div>
+        <ul>
+          <li>Developed <b>predictive-maintenance models</b> (LSTM, XGBoost): 94% fault-detection accuracy across 5 plants and 27% less unexpected downtime.</li>
+          <li>Engineered <b>PySpark pipelines</b> over 500GB+ of IoT telemetry from 10,000+ edge devices, cutting data preparation time by 60%.</li>
+          <li>Built <b>containerized inference APIs</b> on Docker and Azure AKS for real-time anomaly detection across 2,000+ assets, with 40% faster responses.</li>
+          <li>Migrated on-premise ML infrastructure to <b>AWS</b> (S3, EMR, SageMaker); built Tableau dashboards used by 50+ plant managers.</li>
+          <li>Set up <b>CI/CD with GitHub Actions</b>: 50% fewer deployment errors and 40% shorter model release cycles.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="kicker">Toolbox</div>
+    <h2>Skills</h2>
+    <p class="sub">What I use day to day, grouped by the job it does.</p>
+    <div class="skills">
+      <div class="card skill reveal"><h3>Programming &amp; data</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PySpark</span><span class="chip">Bash</span><span class="chip">Git</span></div></div>
+      <div class="card skill reveal"><h3>Machine learning</h3><div class="chips"><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">scikit-learn</span><span class="chip">Time-series forecasting</span><span class="chip">Feature engineering</span><span class="chip">Model evaluation (F1, ROC-AUC, PR-AUC)</span></div></div>
+      <div class="card skill reveal"><h3>Deep learning</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow / Keras</span><span class="chip">LSTM</span><span class="chip">Transformers</span><span class="chip">Hugging Face</span></div></div>
+      <div class="card skill reveal"><h3>Generative AI &amp; LLMs</h3><div class="chips"><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">LoRA / QLoRA</span><span class="chip">Embeddings &amp; semantic search</span><span class="chip">FAISS</span><span class="chip">OpenSearch</span><span class="chip">Pinecone</span><span class="chip">LLM evaluation</span></div></div>
+      <div class="card skill reveal"><h3>Data engineering</h3><div class="chips"><span class="chip">Airflow</span><span class="chip">Spark</span><span class="chip">Kafka</span><span class="chip">AWS EMR</span><span class="chip">ETL</span></div></div>
+      <div class="card skill reveal"><h3>MLOps &amp; cloud</h3><div class="chips"><span class="chip">MLflow</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">FastAPI</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">Weights &amp; Biases</span><span class="chip">Drift monitoring</span><span class="chip">AWS (Bedrock, SageMaker, S3, EMR, Lambda)</span><span class="chip">Azure ML</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="credentials">
+  <div class="wrap">
+    <div class="kicker">Background</div>
+    <h2>Education &amp; certifications</h2>
+    <p class="sub">&nbsp;</p>
+    <div class="two">
+      <div class="card reveal"><h3>Education</h3>
+        <ul class="list">
+          <li><b>M.S. Data Science</b>University of Texas at Arlington · May 2026</li>
+          <li><b>B.E. Electronics &amp; Telecommunication Engineering, AI &amp; ML Honors</b>University of Mumbai · Aug 2024</li>
+        </ul>
+      </div>
+      <div class="card reveal"><h3>Certifications</h3>
+        <ul class="list">
+          <li><b>Certified Associate Machine Learning Engineer, AWS</b><a href="https://www.credly.com/badges/f96d98cb-5acc-4b20-ab3c-034d012a3d2d/public_url" target="_blank" rel="noopener">Verify on Credly ↗</a></li>
+          <li><b>Databricks Fundamentals</b><a href="https://credentials.databricks.com/ddbfc573-f0e5-4317-b799-303ea144794e#acc.69rFtHwN" target="_blank" rel="noopener">Verify credential ↗</a></li>
+          <li><b>Advanced Google Data Analytics</b><a href="https://www.coursera.org/account/accomplishments/verify/S585E7EF9J2L" target="_blank" rel="noopener">Verify on Coursera ↗</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="kicker">Contact</div>
+    <h2>Let's talk about ML systems</h2>
+    <p class="sub">Happy to discuss GenAI evaluation, fraud and anomaly detection, or predictive maintenance. The fastest way to reach me is email or LinkedIn.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:ayush.s@itjobinbox.com">ayush.s@itjobinbox.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/ayush-shinde-70295b344/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/aayshinde" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn" href="assets/Ayush_Shinde_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Ayush Shinde · Hand-built with HTML, CSS and a little JavaScript. No frameworks, no trackers.</div></footer>
+
+<script>
+// theme toggle (remembers choice; falls back to the system setting)
+const root = document.documentElement;
+try{ const t = localStorage.getItem("theme"); if(t) root.dataset.theme = t; }catch{}
+document.getElementById("theme").onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme==="dark" : !matchMedia("(prefers-color-scheme: light)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try{ localStorage.setItem("theme", root.dataset.theme); }catch{}
+};
+// mobile menu
+const menu = document.getElementById("menu"), links = document.getElementById("links");
+menu.onclick = () => { const o = links.classList.toggle("open"); menu.setAttribute("aria-expanded", o); };
+links.addEventListener("click", e => { if(e.target.tagName==="A"){ links.classList.remove("open"); menu.setAttribute("aria-expanded", false); } });
+// load a live demo inside the page only when asked (keeps the page fast)
+document.querySelectorAll(".launch button").forEach(b => b.onclick = () => {
+  const box = document.getElementById(b.dataset.target);
+  box.innerHTML = `<iframe src="${b.dataset.src}" title="Live interactive demo" loading="lazy" allowfullscreen></iframe>`;
+});
+// reveal on scroll
+const rv = document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window){
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+  rv.forEach(el => io.observe(el));
+} else rv.forEach(el => el.classList.add("in"));
+// count-up for headline numbers
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches && !location.search.includes("still")){
+  document.querySelectorAll("[data-count]").forEach(el => {
+    const to = +el.dataset.count, dec = +(el.dataset.dec||0), suf = el.dataset.suffix||"", t0 = performance.now();
+    const tick = t => { const k = Math.min(1,(t-t0)/700), v = to*(1-Math.pow(1-k,3)); el.textContent = v.toFixed(dec)+suf; if(k<1) requestAnimationFrame(tick); };
+    const final = el.textContent;
+    requestAnimationFrame(tick);
+    setTimeout(() => { el.textContent = final; }, 900);   // always land on the true value
+  });
+}
+// highlight current section in the nav
+const secs = [...document.querySelectorAll("main section[id]")], navA = [...document.querySelectorAll("#links a")];
+addEventListener("scroll", () => {
+  const y = scrollY + 120; let cur = "";
+  secs.forEach(s => { if(s.offsetTop <= y) cur = s.id; });
+  navA.forEach(a => a.classList.toggle("on", a.getAttribute("href")==="#"+cur));
+}, {passive:true});
+</script>
+</body>
+</html>
