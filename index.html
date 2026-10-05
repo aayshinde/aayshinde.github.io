@@ -81,7 +81,21 @@ h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text
 .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:14px}
 .meta span:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:1px}
 
-/* live console (hero) */
+
+/* portrait */
+.portrait-wrap{display:grid;gap:14px;justify-items:center}
+.portrait{margin:0;position:relative;width:min(100%,430px);border-radius:26px;padding:3px;background:var(--grad);box-shadow:0 30px 80px #0006,0 0 70px color-mix(in srgb,var(--accent2) 22%,transparent)}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:23px;background:#e9eef5}
+.portrait figcaption{position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:14px;background:color-mix(in srgb,#0b0f14 78%,transparent);backdrop-filter:blur(10px);color:#fff}
+.portrait figcaption b{font-size:16px}.portrait figcaption span{font:12.5px var(--mono);color:#c9d4e0}
+.facts-now{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:min(100%,430px)}
+.facts-now li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center}
+.facts-now b{display:block;font-size:18px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.facts-now span{font-size:12px;color:var(--muted);line-height:1.3;display:block}
+.live-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
+@media(max-width:940px){.live-grid{grid-template-columns:1fr}}
+
+/* live console */
 .win{background:var(--term);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px #0007,0 0 0 1px #ffffff08 inset}
 .win-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:#0d1219}
 :root[data-theme="light"] .win-bar{background:#1b2431}
@@ -232,6 +246,7 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
     <a class="brand" href="#top"><i>AS</i> Ayush Shinde</a>
     <button class="iconbtn menu" id="menu" aria-label="Menu" aria-expanded="false">☰</button>
     <ul id="links">
+      <li><a href="#live">Live model</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#hood">Under the hood</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -256,27 +271,22 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
           <a class="btn" href="assets/Ayush_Shinde_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
           <a class="btn" href="#terminal">Open the terminal ›_</a>
         </div>
-        <div class="meta"><span>M.S. Data Science, UT Arlington</span><span>2.5+ years in production ML</span><span class="kbdhint">Press <span class="kbd" style="margin:0 2px">/</span> for the terminal</span></div>
+        <div class="meta"><span>M.S. Data Science, UT Arlington</span><span>3 years in production ML</span><span class="kbdhint">Press <span class="kbd" style="margin:0 2px">/</span> for the terminal</span></div>
       </div>
 
-      <div>
-        <div class="win" role="group" aria-label="Live model output">
-          <div class="win-bar"><i></i><i></i><i></i><b>fleet-console · real model output</b><span class="live" id="liveTag">LIVE</span></div>
-          <div class="console">
-            <div class="cmap" id="cmap" role="img" aria-label="Animated risk map of 100 machines replaying a real failure from the held-out test period"></div>
-            <div class="readout">
-              <span id="rTitle">loading model output…</span><b id="rPct">–</b>
-              <div class="rbar" aria-hidden="true"><i id="rFill"></i><u id="rThr"></u></div>
-              <div class="verdict-line" id="rVerdict"></div>
-            </div>
-            <div class="ctrls" id="ctrls">
-              <button id="rPlay" aria-label="Play or pause the replay">⏸ pause</button>
-              <input type="range" id="rScrub" min="0" max="10" value="0" aria-label="Scrub through time">
-              <button id="rNext" aria-label="Next failure">next ›</button>
-            </div>
-          </div>
-        </div>
-        <p class="honest"><b>This is not a mock-up.</b> It replays my failure-prediction model's actual scores on a simulated fleet's held-out test period. White dots are machines that really fail within 24 h. Hover a square to inspect it.</p>
+      <div class="portrait-wrap">
+        <figure class="portrait">
+          <img src="assets/ayush.jpg" width="720" height="720" alt="Portrait of Ayush Shinde, AI/ML engineer" fetchpriority="high">
+          <figcaption>
+            <b>Ayush Shinde</b>
+            <span>AI/ML Engineer · JPMorgan Chase</span>
+          </figcaption>
+        </figure>
+        <ul class="facts-now" aria-label="At a glance">
+          <li><b>3 yrs</b><span>production ML</span></li>
+          <li><b>M.S.</b><span>Data Science, UTA</span></li>
+          <li><b>AWS</b><span>Certified ML Engineer</span></li>
+        </ul>
       </div>
     </div>
 
@@ -287,6 +297,44 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
       <div class="stat" role="listitem"><b data-count="98" data-suffix="%">98%</b><span>of out-of-scope tickets escalated to a human, not guessed</span></div>
     </div>
     <p class="foot">Results come from the two projects below, measured on held-out data (the failure project uses a simulated fleet). Each links to its code and a reproducible report.</p>
+  </div>
+</section>
+
+<section id="live">
+  <div class="wrap">
+    <div class="live-grid">
+      <div>
+        <div class="kicker">Watch the model work</div>
+        <h2>Real predictions, replayed</h2>
+        <p class="sub" style="margin-bottom:18px">This is output from my failure-prediction model on a simulated 100-machine fleet, replaying the hours before real failures in a test period the model never saw in training.</p>
+        <ul class="decisions">
+          <li>Each square is a machine, coloured by its predicted chance of failing in the next 24 hours</li>
+          <li>White dots mark machines that really do fail within 24 hours</li>
+          <li>The readout shows when the model flagged the machine, ahead of the failure</li>
+          <li>Hover a square to inspect it, or use the slider to scrub through time</li>
+        </ul>
+        <p class="caption"><b style="color:var(--text)">This is not a mock-up.</b> It reads the same scores that power the full demo.</p>
+        <div class="links" style="margin-top:14px"><a class="btn primary" href="https://aayshinde.github.io/failure-rca-agent/" target="_blank" rel="noopener">Open the full console ↗</a></div>
+      </div>
+      <div>
+        <div class="win" role="group" aria-label="Live model output">
+        <div class="win-bar"><i></i><i></i><i></i><b>fleet-console · real model output</b><span class="live" id="liveTag">LIVE</span></div>
+        <div class="console">
+        <div class="cmap" id="cmap" role="img" aria-label="Animated risk map of 100 machines replaying a real failure from the held-out test period"></div>
+        <div class="readout">
+        <span id="rTitle">loading model output…</span><b id="rPct">–</b>
+        <div class="rbar" aria-hidden="true"><i id="rFill"></i><u id="rThr"></u></div>
+        <div class="verdict-line" id="rVerdict"></div>
+        </div>
+        <div class="ctrls" id="ctrls">
+        <button id="rPlay" aria-label="Play or pause the replay">⏸ pause</button>
+        <input type="range" id="rScrub" min="0" max="10" value="0" aria-label="Scrub through time">
+        <button id="rNext" aria-label="Next failure">next ›</button>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
