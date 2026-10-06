@@ -17,28 +17,19 @@
 </script>
 <style>
 :root{
-  --bg:#0b0f14; --bg2:#10161e; --panel:#121820; --line:#232d3a; --text:#e8eef5; --muted:#9aa7b6;
-  --accent:#6ea8ff; --accent2:#b18cff; --ok:#2dd4a7; --warn:#f5b84b; --bad:#ff5d5d; --term:#070a0e;
-  --grad:linear-gradient(135deg,#6ea8ff,#b18cff);
+  --bg:#f4f1e8; --bg2:#ece7da; --panel:#fbf9f3; --line:#ddd6c6; --text:#1c2033; --muted:#5d6273;
+  --accent:#2b3a8c; --accent2:#5b4bc4; --ok:#0f7a5c; --warn:#a15c07; --bad:#b42318; --term:#0f141b;
+  --grad:linear-gradient(135deg,#2b3a8c,#5b4bc4);
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
 }
-:root[data-theme="light"]{
-  --bg:#f7f9fc; --bg2:#eef2f8; --panel:#ffffff; --line:#d9e1ec; --text:#0f1722; --muted:#4a586a;
-  --accent:#2563eb; --accent2:#7c3aed; --ok:#047857; --warn:#b45309; --bad:#b91c1c; --term:#0f1722;
-  --grad:linear-gradient(135deg,#2563eb,#7c3aed);
-}
-@media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]){
-    --bg:#f7f9fc; --bg2:#eef2f8; --panel:#ffffff; --line:#d9e1ec; --text:#0f1722; --muted:#4a586a;
-    --accent:#2563eb; --accent2:#7c3aed; --ok:#047857; --warn:#b45309; --bad:#b91c1c; --term:#0f1722;
-    --grad:linear-gradient(135deg,#2563eb,#7c3aed);
-  }
+:root[data-theme="dark"]{
+  --bg:#0b0f14; --bg2:#10161e; --panel:#121820; --line:#232d3a; --text:#e8eef5; --muted:#9aa7b6;
+  --accent:#6ea8ff; --accent2:#b18cff; --ok:#2dd4a7; --warn:#f5b84b; --bad:#ff5d5d; --term:#070a0e;
+  --grad:linear-gradient(135deg,#6ea8ff,#b18cff);
 }
 *{box-sizing:border-box} .still *{transition:none!important;animation:none!important} .still .fab{display:none} html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;background-position:-1px -1px;background-attachment:fixed}
-body:before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 75%);pointer-events:none;z-index:-1;opacity:.96}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
@@ -77,28 +68,55 @@ h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;border:1px solid var(--line);color:var(--text);background:var(--panel);cursor:pointer;font-family:var(--sans);font-size:16px}
 .btn:hover{border-color:var(--accent);text-decoration:none;transform:translateY(-1px)}
 .btn.primary{background:var(--grad);color:#08121f;border-color:transparent}
-:root[data-theme="light"] .btn.primary{color:#fff}
+.btn.primary{color:#fff} :root[data-theme="dark"] .btn.primary{color:#08121f}
 .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:14px}
 .meta span:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:8px;vertical-align:1px}
 
 
-/* portrait */
-.portrait-wrap{display:grid;gap:14px;justify-items:center}
-.portrait{margin:0;position:relative;width:min(100%,430px);border-radius:26px;padding:3px;background:var(--grad);box-shadow:0 30px 80px #0006,0 0 70px color-mix(in srgb,var(--accent2) 22%,transparent)}
-.portrait img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:23px;background:#e9eef5}
-.portrait figcaption{position:absolute;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:14px;background:color-mix(in srgb,#0b0f14 78%,transparent);backdrop-filter:blur(10px);color:#fff}
-.portrait figcaption b{font-size:16px}.portrait figcaption span{font:12.5px var(--mono);color:#c9d4e0}
-.facts-now{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:min(100%,430px)}
-.facts-now li{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center}
-.facts-now b{display:block;font-size:18px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.facts-now span{font-size:12px;color:var(--muted);line-height:1.3;display:block}
 .live-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center}
 @media(max-width:940px){.live-grid{grid-template-columns:1fr}}
+
+
+/* editorial hero */
+.hero2{position:relative;min-height:min(94vh,880px);overflow:hidden;background:radial-gradient(1000px 520px at 50% 105%,color-mix(in srgb,var(--accent2) 10%,transparent),transparent 70%)}
+.bigname{position:absolute;left:0;right:0;top:9%;overflow:hidden;pointer-events:none;user-select:none}
+.bigname .track{display:flex;width:max-content;animation:drift 60s linear infinite}
+.bigname span{font:800 clamp(120px,21vw,330px)/.86 var(--sans);letter-spacing:-.05em;color:color-mix(in srgb,var(--text) 7%,transparent);white-space:nowrap}
+.bigname.paused .track{animation-play-state:paused}
+@keyframes drift{to{transform:translateX(-50%)}}
+.motion{position:absolute;top:22px;right:24px;z-index:4;width:44px;height:44px;border-radius:50%;border:0;background:var(--text);color:var(--bg);font-size:12px;letter-spacing:-1px;cursor:pointer;box-shadow:0 8px 24px #0002}
+.motion:hover{transform:scale(1.05)}
+.cut{position:absolute;bottom:0;left:63%;transform:translateX(-50%);height:min(78vh,720px);width:auto;z-index:2;filter:drop-shadow(0 20px 40px #1c203322)}
+.hero2-inner{position:absolute;left:0;right:0;bottom:44px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.title{position:relative;margin:0;font:800 clamp(56px,8.4vw,128px)/.9 var(--sans);letter-spacing:-.045em;background:linear-gradient(180deg,var(--text),color-mix(in srgb,var(--text) 70%,var(--accent)));-webkit-background-clip:text;background-clip:text;color:transparent}
+.title .who{display:block;font:500 13px var(--mono);letter-spacing:.32em;text-transform:uppercase;color:var(--muted);-webkit-text-fill-color:var(--muted);margin:0 0 14px 4px}
+.title .dot{-webkit-text-fill-color:var(--accent2);color:var(--accent2)}
+.hero-tag{margin:16px 0 0 4px;color:var(--muted);font-size:15px;max-width:360px}
+.h-right{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;max-width:470px}
+.pill{display:inline-flex;align-items:center;padding:12px 22px;border-radius:99px;border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 80%,transparent);backdrop-filter:blur(8px);color:var(--text);font-weight:600;font-size:15px}
+.pill:hover{text-decoration:none;border-color:var(--text)}
+.pill.solid{background:var(--text);color:var(--bg);border-color:var(--text)}
+@media(max-width:900px){
+  .hero2{min-height:0;display:flex;flex-direction:column;padding-top:28px}
+  .bigname{top:40px}
+  .bigname span{font-size:34vw}
+  .cut{position:relative;left:auto;transform:none;align-self:center;height:auto;width:min(86vw,440px);margin-top:28px;order:1;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+  .hero2-inner{position:relative;bottom:auto;flex-direction:column;align-items:flex-start;order:2;padding-top:6px;padding-bottom:34px;margin-top:0}
+  .h-right{justify-content:flex-start;max-width:none}
+  .motion{top:14px;right:16px;width:38px;height:38px}
+}
+/* about band */
+.intro{padding:72px 0 64px;border-top:1px solid var(--line)}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:40px}
+@media(max-width:900px){.intro-grid{grid-template-columns:1fr;gap:18px}}
+.intro-h{font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.02em;margin:8px 0 0}
+.intro-h span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro .stats{margin-top:8px}
 
 /* live console */
 .win{background:var(--term);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px #0007,0 0 0 1px #ffffff08 inset}
 .win-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:#0d1219}
-:root[data-theme="light"] .win-bar{background:#1b2431}
+
 .win-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
 .win-bar i:nth-child(1){background:#ff5f57}.win-bar i:nth-child(2){background:#febc2e}.win-bar i:nth-child(3){background:#28c840}
 .win-bar b{margin-left:8px;font:500 12px var(--mono);color:#9aa7b6}
@@ -246,9 +264,9 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
     <a class="brand" href="#top"><i>AS</i> Ayush Shinde</a>
     <button class="iconbtn menu" id="menu" aria-label="Menu" aria-expanded="false">☰</button>
     <ul id="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
       <li><a href="#live">Live model</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#hood">Under the hood</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#terminal">Terminal</a></li>
@@ -259,37 +277,31 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
 </header>
 
 <main id="main">
-<section class="hero" id="top">
+<section class="hero2" id="top">
+  <div class="bigname" id="bigname" aria-hidden="true"><div class="track"><span>AYUSH SHINDE&nbsp;</span><span>AYUSH SHINDE&nbsp;</span></div></div>
+  <button class="motion" id="motion" aria-label="Pause background animation" title="Pause animation">❚❚</button>
+  <img class="cut" src="assets/ayush-cutout.webp" width="740" height="751" alt="Ayush Shinde" fetchpriority="high">
+  <div class="wrap hero2-inner">
+    <div class="h-left">
+      <h1 class="title"><span class="who">Ayush Shinde</span>AI/ML<br>Engineer<span class="dot">.</span></h1>
+      <p class="hero-tag">Production ML · GenAI &amp; RAG · anomaly detection · predictive maintenance</p>
+    </div>
+    <div class="h-right">
+      <a class="pill solid" href="#projects">Explore work</a>
+      <a class="pill" href="#contact">Let's talk</a>
+      <a class="pill" href="assets/Ayush_Shinde_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </div>
+</section>
+
+<section class="intro" id="about">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow">AI / ML Engineer · Texas, USA</div>
-        <h1>I build ML systems that <span>hold up when people rely on them.</span></h1>
-        <p class="lead">I'm an AI/ML engineer at <b>JPMorgan Chase</b>, working on GenAI and classical ML for financial services and manufacturing: <b>RAG assistants, anomaly detection and predictive maintenance</b>. I care about honest evaluation and models that know when not to answer.</p>
-        <div class="cta">
-          <a class="btn primary" href="#projects">See live projects ↓</a>
-          <a class="btn" href="assets/Ayush_Shinde_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-          <a class="btn" href="#terminal">Open the terminal ›_</a>
-        </div>
+    <div class="intro-grid">
+      <div><div class="kicker">About</div><h2 class="intro-h">I build ML systems that <span>hold up when people rely on them.</span></h2></div>
+      <div><p class="lead">I'm an AI/ML engineer at <b>JPMorgan Chase</b>, working on GenAI and classical ML for financial services and manufacturing: <b>RAG assistants, anomaly detection and predictive maintenance</b>. I care about honest evaluation and models that know when not to answer.</p>
         <div class="meta"><span>M.S. Data Science, UT Arlington</span><span>3 years in production ML</span><span class="kbdhint">Press <span class="kbd" style="margin:0 2px">/</span> for the terminal</span></div>
       </div>
-
-      <div class="portrait-wrap">
-        <figure class="portrait">
-          <img src="assets/ayush.jpg" width="720" height="720" alt="Portrait of Ayush Shinde, AI/ML engineer" fetchpriority="high">
-          <figcaption>
-            <b>Ayush Shinde</b>
-            <span>AI/ML Engineer · JPMorgan Chase</span>
-          </figcaption>
-        </figure>
-        <ul class="facts-now" aria-label="At a glance">
-          <li><b>3 yrs</b><span>production ML</span></li>
-          <li><b>M.S.</b><span>Data Science, UTA</span></li>
-          <li><b>AWS</b><span>Certified ML Engineer</span></li>
-        </ul>
-      </div>
     </div>
-
     <div class="stats" role="list" aria-label="Headline results">
       <div class="stat" role="listitem"><b data-count="85" data-suffix="%">85%</b><span>of 462 failures caught, with a median 20 h warning</span></div>
       <div class="stat" role="listitem"><b data-count="0.18" data-dec="2">0.18</b><span>false alerts per machine per month</span></div>
@@ -441,7 +453,7 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
         <div class="loop">↺ if verify finds claims the evidence does not support, it loops back to <b>diagnose</b> once.</div>
       </div>
       <div class="card reveal">
-        <div class="legend"><span><s style="background:#6b7a8d"></s>ReAct baseline</span><span><s style="background:#6ea8ff"></s>LangGraph workflow</span></div>
+        <div class="legend"><span><s style="background:#6b7a8d"></s>ReAct baseline</span><span><s style="background:var(--accent2)"></s>LangGraph workflow</span></div>
         <div class="score" id="score"></div>
         <p class="caption" style="margin-top:14px">Same six tools, same 32 held-out questions, same local Qwen2.5-7B ($0). Small sample: the 80% vs 65% root-cause gap is suggestive, not proven (the confidence intervals overlap), and the baseline wins on risk questions.</p>
       </div>
@@ -563,8 +575,7 @@ const DEMO = "https://aayshinde.github.io/failure-rca-agent/data/";
 const root = document.documentElement;
 try{ const t = localStorage.getItem("theme"); if(t) root.dataset.theme = t; }catch{}
 $("#theme").onclick = () => {
-  const dark = root.dataset.theme ? root.dataset.theme==="dark" : !matchMedia("(prefers-color-scheme: light)").matches;
-  root.dataset.theme = dark ? "light" : "dark"; try{ localStorage.setItem("theme", root.dataset.theme); }catch{}
+  root.dataset.theme = root.dataset.theme==="dark" ? "light" : "dark"; try{ localStorage.setItem("theme", root.dataset.theme); }catch{}
 };
 const menu = $("#menu"), links = $("#links");
 menu.onclick = () => { const o = links.classList.toggle("open"); menu.setAttribute("aria-expanded", o); };
@@ -591,7 +602,17 @@ addEventListener("scroll", () => {
   navA.forEach(a => a.classList.toggle("on", a.getAttribute("href")==="#"+cur));
 }, {passive:true});
 
-/* ---------- hero: replay real model output ---------- */
+
+/* ---------- hero: drifting name with a pause control ---------- */
+(function(){
+  const bn = $("#bigname"), mb = $("#motion");
+  const set = paused => { bn.classList.toggle("paused", paused); mb.textContent = paused ? "▶" : "❚❚";
+    mb.setAttribute("aria-label", paused ? "Play background animation" : "Pause background animation"); };
+  if(reduced || location.search.includes("still")){ set(true); mb.hidden = true; }
+  mb.onclick = () => set(!bn.classList.contains("paused"));
+})();
+
+/* ---------- live model: replay real model output ---------- */
 (function(){
   const grid = $("#cmap"); const cells = [];
   for(let i=0;i<100;i++){ const d = document.createElement("div"); d.className="cell"; grid.appendChild(d); cells.push(d); }
