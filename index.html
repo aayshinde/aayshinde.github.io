@@ -86,7 +86,7 @@ h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text
 @keyframes drift{to{transform:translateX(-50%)}}
 .motion{position:absolute;top:22px;right:24px;z-index:4;width:44px;height:44px;border-radius:50%;border:0;background:var(--text);color:var(--bg);font-size:12px;letter-spacing:-1px;cursor:pointer;box-shadow:0 8px 24px #0002}
 .motion:hover{transform:scale(1.05)}
-.cut{position:absolute;bottom:0;left:63%;transform:translateX(-50%);height:min(78vh,720px);width:auto;z-index:2;filter:drop-shadow(0 20px 40px #1c203322)}
+.cut{position:absolute;bottom:0;left:65.5%;transform:var(--base,translateX(-50%));height:min(78vh,720px);width:auto;z-index:2;filter:drop-shadow(0 20px 40px #1c203322)}
 .hero2-inner{position:absolute;left:0;right:0;bottom:44px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
 .title{position:relative;margin:0;font:800 clamp(56px,8.4vw,128px)/.9 var(--sans);letter-spacing:-.045em;background:linear-gradient(180deg,var(--text),color-mix(in srgb,var(--text) 70%,var(--accent)));-webkit-background-clip:text;background-clip:text;color:transparent}
 .title .who{display:block;font:500 13px var(--mono);letter-spacing:.32em;text-transform:uppercase;color:var(--muted);-webkit-text-fill-color:var(--muted);margin:0 0 14px 4px}
@@ -100,11 +100,37 @@ h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text
   .hero2{min-height:0;display:flex;flex-direction:column;padding-top:28px}
   .bigname{top:40px}
   .bigname span{font-size:34vw}
-  .cut{position:relative;left:auto;transform:none;align-self:center;height:auto;width:min(86vw,440px);margin-top:28px;order:1;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+  .cut{position:relative;left:auto;transform:var(--base,none);align-self:center;height:auto;width:min(86vw,440px);margin-top:28px;order:1;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
   .hero2-inner{position:relative;bottom:auto;flex-direction:column;align-items:flex-start;order:2;padding-top:6px;padding-bottom:34px;margin-top:0}
   .h-right{justify-content:flex-start;max-width:none}
   .motion{top:14px;right:16px;width:38px;height:38px}
 }
+
+/* portrait comes alive: walks forward, breathes, says hello */
+.cut{--base:translateX(-50%);transform-origin:50% 100%;animation:walkin 1.9s cubic-bezier(.2,.7,.2,1) both,breathe 6s ease-in-out 2.1s infinite}
+@keyframes walkin{
+  0%{opacity:0;transform:var(--base) translateY(36px) scale(.82)}
+  18%{opacity:1;transform:var(--base) translateY(10px) scale(.86)}
+  32%{transform:var(--base) translateY(22px) scale(.9)}
+  48%{transform:var(--base) translateY(4px) scale(.94)}
+  64%{transform:var(--base) translateY(14px) scale(.97)}
+  80%{transform:var(--base) translateY(2px) scale(.995)}
+  100%{opacity:1;transform:var(--base) translateY(0) scale(1)}}
+@keyframes breathe{50%{transform:var(--base) translateY(-2px) scale(1.006)}}
+.hero2.calm .cut{animation:none}
+.say{position:absolute;z-index:4;left:calc(65.5% + min(16vh,160px));top:24%;max-width:300px;padding:14px 18px;border-radius:18px 18px 18px 4px;background:var(--panel);border:1px solid var(--line);
+  box-shadow:0 14px 40px #1c203320;font-size:15.5px;line-height:1.45;color:var(--text);opacity:0;transform:translateY(8px) scale(.96);transition:opacity .4s,transform .4s}
+.say.on{opacity:1;transform:none}
+.say .caret{display:inline-block;width:2px;height:1em;background:var(--accent2);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+.say.done .caret{display:none}
+@keyframes blink{50%{opacity:0}}
+@media(max-width:1100px){.say{left:auto;right:3%;top:16%;max-width:250px;font-size:14.5px}}
+@media(max-width:900px){
+  .cut{--base:none}
+  .say{position:relative;order:1;align-self:center;left:auto;right:auto;top:auto;margin:-6px 20px 0;max-width:340px;border-radius:18px 18px 4px 18px}
+}
+@media(prefers-reduced-motion:reduce){.cut{animation:none}.say{transition:none}.say .caret{animation:none}}
+
 /* about band */
 .intro{padding:72px 0 64px;border-top:1px solid var(--line)}
 .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-bottom:40px}
@@ -281,6 +307,7 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
   <div class="bigname" id="bigname" aria-hidden="true"><div class="track"><span>AYUSH SHINDE&nbsp;</span><span>AYUSH SHINDE&nbsp;</span></div></div>
   <button class="motion" id="motion" aria-label="Pause background animation" title="Pause animation">❚❚</button>
   <img class="cut" src="assets/ayush-cutout.webp" width="740" height="751" alt="Ayush Shinde" fetchpriority="high">
+  <div class="say" id="say" role="status" aria-live="polite"><span id="sayText"></span><span class="caret" aria-hidden="true"></span></div>
   <div class="wrap hero2-inner">
     <div class="h-left">
       <h1 class="title"><span class="who">Ayush Shinde</span>AI/ML<br>Engineer<span class="dot">.</span></h1>
@@ -606,10 +633,26 @@ addEventListener("scroll", () => {
 /* ---------- hero: drifting name with a pause control ---------- */
 (function(){
   const bn = $("#bigname"), mb = $("#motion");
-  const set = paused => { bn.classList.toggle("paused", paused); mb.textContent = paused ? "▶" : "❚❚";
+  const set = paused => { bn.classList.toggle("paused", paused); $(".hero2").classList.toggle("calm", paused); mb.textContent = paused ? "▶" : "❚❚";
     mb.setAttribute("aria-label", paused ? "Play background animation" : "Pause background animation"); };
   if(reduced || location.search.includes("still")){ set(true); mb.hidden = true; }
   mb.onclick = () => set(!bn.classList.contains("paused"));
+})();
+
+
+/* ---------- hero: the portrait says hello ---------- */
+(function(){
+  const box = $("#say"), out = $("#sayText");
+  const line = "Hi, I'm Ayush 👋 I'm an AI/ML engineer. This is my portfolio, and everything I've built is just below.";
+  const still = reduced || location.search.includes("still");
+  const start = () => {
+    box.classList.add("on");
+    if(still){ out.textContent = line; box.classList.add("done"); return; }
+    let i = 0; const chars = [...line];
+    const step = () => { out.textContent = chars.slice(0, ++i).join(""); if(i < chars.length) setTimeout(step, chars[i-1]==="." ? 260 : 32); else box.classList.add("done"); };
+    step();
+  };
+  setTimeout(start, still ? 0 : 1900);
 })();
 
 /* ---------- live model: replay real model output ---------- */
