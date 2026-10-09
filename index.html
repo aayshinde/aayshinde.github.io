@@ -160,12 +160,13 @@ h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text
 .honest{font-size:12.5px;color:var(--muted);margin:10px 4px 0}
 .honest b{color:var(--text)}
 
-.stats{margin-top:42px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.stats{margin-top:42px;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .stat{background:var(--panel);padding:20px 22px}
-.stat b{display:block;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat b{display:block;white-space:nowrap;font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat span{color:var(--muted);font-size:14px}
 .foot{color:var(--muted);font-size:12.5px;margin-top:10px}
-@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.stat:last-child{grid-column:1/-1}}
 
 /* sections */
 section{padding:76px 0}
@@ -325,6 +326,7 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
       <div class="stat" role="listitem"><b data-count="0.18" data-dec="2">0.18</b><span>false alerts per machine per month</span></div>
       <div class="stat" role="listitem"><b>27% → 92%</b><span>doc-retrieval hit rate after the agent redesign</span></div>
       <div class="stat" role="listitem"><b data-count="98" data-suffix="%">98%</b><span>of out-of-scope tickets escalated to a human, not guessed</span></div>
+      <div class="stat" role="listitem"><b>2.7×</b><span>more eventual clinical-trial failures caught in the riskiest 10% than chance, on years held out</span></div>
     </div>
     <p class="foot">Results come from the projects below, measured on held-out data (the failure project uses a simulated fleet). Each links to its code and a reproducible report.</p>
   </div>
@@ -372,11 +374,11 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
   <div class="wrap">
     <div class="kicker">What I bring</div>
     <h2>Three things I do well</h2>
-    <p class="sub">Whether it is fraud, maintenance or support, the work usually comes down to the same three skills.</p>
+    <p class="sub">Whether it is fraud, maintenance, support or clinical trials, the work usually comes down to the same three skills.</p>
     <div class="grid3">
       <div class="card reveal"><div class="ico">🚀</div><h3>Ship ML to production</h3><p>Containerized inference, CI/CD, experiment tracking and drift checks. At Siemens I built real-time anomaly detection for 2,000+ assets on Docker and Azure AKS.</p></div>
       <div class="card reveal"><div class="ico">🧪</div><h3>Build GenAI that is measured</h3><p>RAG with retrieval evaluation, groundedness checks and abstention, so the system cites evidence or hands off to a person instead of guessing.</p></div>
-      <div class="card reveal"><div class="ico">🧱</div><h3>Engineer data at scale</h3><p>PySpark feature pipelines on EMR with Airflow, from 500GB+ of IoT telemetry to transaction data, with validation so models train on clean inputs.</p></div>
+      <div class="card reveal"><div class="ico">🧱</div><h3>Engineer data at scale</h3><p>PySpark feature pipelines on EMR with Airflow, from 500GB+ of IoT telemetry to transaction data, with validation so models train on clean inputs. In TrialScope I added a dbt + DuckDB warehouse with change history and data tests that fail the build on leakage.</p></div>
     </div>
   </div>
 </section>
@@ -548,11 +550,11 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
     <p class="sub">What I use day to day, grouped by the job it does.</p>
     <div class="skills">
       <div class="card skill reveal"><h3>Programming &amp; data</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">PySpark</span><span class="chip">Bash</span><span class="chip">Git</span></div></div>
-      <div class="card skill reveal"><h3>Machine learning</h3><div class="chips"><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">scikit-learn</span><span class="chip">Time-series forecasting</span><span class="chip">Feature engineering</span><span class="chip">Model evaluation (F1, ROC-AUC, PR-AUC)</span></div></div>
+      <div class="card skill reveal"><h3>Machine learning</h3><div class="chips"><span class="chip">XGBoost</span><span class="chip">LightGBM</span><span class="chip">scikit-learn</span><span class="chip">Time-series forecasting</span><span class="chip">Feature engineering</span><span class="chip">Model evaluation (F1, ROC-AUC, PR-AUC)</span><span class="chip">Survival analysis</span><span class="chip">Explainability (SHAP)</span><span class="chip">Probability calibration</span><span class="chip">Leakage-safe validation</span></div></div>
       <div class="card skill reveal"><h3>Deep learning</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow / Keras</span><span class="chip">LSTM</span><span class="chip">Transformers</span><span class="chip">Hugging Face</span></div></div>
-      <div class="card skill reveal"><h3>Generative AI &amp; LLMs</h3><div class="chips"><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">LoRA / QLoRA</span><span class="chip">Embeddings &amp; semantic search</span><span class="chip">FAISS</span><span class="chip">OpenSearch</span><span class="chip">Pinecone</span><span class="chip">LLM evaluation</span></div></div>
-      <div class="card skill reveal"><h3>Data engineering</h3><div class="chips"><span class="chip">Airflow</span><span class="chip">Spark</span><span class="chip">Kafka</span><span class="chip">AWS EMR</span><span class="chip">ETL</span></div></div>
-      <div class="card skill reveal"><h3>MLOps &amp; cloud</h3><div class="chips"><span class="chip">MLflow</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">FastAPI</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">Weights &amp; Biases</span><span class="chip">Drift monitoring</span><span class="chip">AWS (Bedrock, SageMaker, S3, EMR, Lambda)</span><span class="chip">Azure ML</span></div></div>
+      <div class="card skill reveal"><h3>Generative AI &amp; LLMs</h3><div class="chips"><span class="chip">RAG</span><span class="chip">LangChain</span><span class="chip">LangGraph</span><span class="chip">LoRA / QLoRA</span><span class="chip">Embeddings &amp; semantic search</span><span class="chip">FAISS</span><span class="chip">OpenSearch</span><span class="chip">Pinecone</span><span class="chip">LLM evaluation</span><span class="chip">Local LLMs (Ollama)</span></div></div>
+      <div class="card skill reveal"><h3>Data engineering</h3><div class="chips"><span class="chip">Airflow</span><span class="chip">Spark</span><span class="chip">Kafka</span><span class="chip">AWS EMR</span><span class="chip">ETL</span><span class="chip">dbt</span><span class="chip">DuckDB</span><span class="chip">Prefect</span><span class="chip">Data modelling (SCD2)</span><span class="chip">Data-quality tests</span></div></div>
+      <div class="card skill reveal"><h3>MLOps &amp; cloud</h3><div class="chips"><span class="chip">MLflow</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">FastAPI</span><span class="chip">GitHub Actions</span><span class="chip">Jenkins</span><span class="chip">Weights &amp; Biases</span><span class="chip">Drift monitoring</span><span class="chip">AWS (Bedrock, SageMaker, S3, EMR, Lambda)</span><span class="chip">Azure ML</span><span class="chip">Streamlit</span></div></div>
     </div>
   </div>
 </section>
@@ -601,7 +603,7 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
   <div class="wrap">
     <div class="kicker">Contact</div>
     <h2>Let's talk about ML systems</h2>
-    <p class="sub">Happy to discuss GenAI evaluation, fraud and anomaly detection, or predictive maintenance. The fastest way to reach me is email or LinkedIn.</p>
+    <p class="sub">Happy to discuss GenAI evaluation, fraud and anomaly detection, predictive maintenance or risk modelling on messy public data. The fastest way to reach me is email or LinkedIn.</p>
     <div class="cta">
       <a class="btn primary" href="mailto:ayush.s@itjobinbox.com">ayush.s@itjobinbox.com</a>
       <a class="btn" href="https://www.linkedin.com/in/ayush-shinde-70295b344/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -775,7 +777,7 @@ const CMD = {
     L("  RAG assistant (Bedrock, OpenSearch), gradient-boosted risk classifiers, PySpark + Airflow + MLflow pipelines.");
     L('<span class="c-hd">Siemens</span> <span class="c-dim">ML Engineer · Aug 2022 – Jul 2024</span>');
     L("  Predictive maintenance (LSTM, XGBoost), 500GB+ IoT pipelines, containerized inference on Azure AKS, CI/CD."); },
-  skills(){ [["code","Python SQL PySpark Bash Git"],["ml","XGBoost LightGBM scikit-learn time-series feature-engineering"],["deep","PyTorch TensorFlow LSTM Transformers HuggingFace"],["genai","RAG LangChain LangGraph LoRA FAISS OpenSearch LLM-evaluation"],["data","Airflow Spark Kafka EMR ETL"],["mlops","MLflow Docker Kubernetes FastAPI GitHub-Actions drift-monitoring AWS Azure"]]
+  skills(){ [["code","Python SQL PySpark Bash Git"],["ml","XGBoost LightGBM scikit-learn time-series survival-analysis SHAP calibration feature-engineering"],["deep","PyTorch TensorFlow LSTM Transformers HuggingFace"],["genai","RAG LangChain LangGraph LoRA FAISS OpenSearch LLM-evaluation Ollama"],["data","Airflow Spark Kafka EMR ETL dbt DuckDB Prefect"],["mlops","MLflow Docker Kubernetes FastAPI GitHub-Actions Streamlit drift-monitoring AWS Azure"]]
     .forEach(([k,v])=>L(`<span class="c-key">${k.padEnd(7)}</span>${v}`)); },
   education(){ L("M.S. Data Science · University of Texas at Arlington · May 2026");
     L("B.E. Electronics &amp; Telecom, AI &amp; ML Honors · University of Mumbai · Aug 2024");
