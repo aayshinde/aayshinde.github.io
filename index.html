@@ -7,7 +7,7 @@
 <meta name="description" content="AI/ML Engineer building GenAI and classical ML systems for financial services and manufacturing: RAG, anomaly detection, predictive maintenance. This page runs real output from my own model.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ayush Shinde | AI/ML Engineer">
-<meta property="og:description" content="ML systems that hold up when people rely on them. A portfolio that runs real model output, an interactive terminal, and two live projects.">
+<meta property="og:description" content="ML systems that hold up when people rely on them. A portfolio that runs real model output, an interactive terminal, and three live projects.">
 <meta property="og:image" content="https://aayshinde.github.io/assets/og.png">
 <meta property="og:url" content="https://aayshinde.github.io/">
 <meta name="twitter:card" content="summary_large_image">
@@ -326,7 +326,7 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
       <div class="stat" role="listitem"><b>27% → 92%</b><span>doc-retrieval hit rate after the agent redesign</span></div>
       <div class="stat" role="listitem"><b data-count="98" data-suffix="%">98%</b><span>of out-of-scope tickets escalated to a human, not guessed</span></div>
     </div>
-    <p class="foot">Results come from the two projects below, measured on held-out data (the failure project uses a simulated fleet). Each links to its code and a reproducible report.</p>
+    <p class="foot">Results come from the projects below, measured on held-out data (the failure project uses a simulated fleet). Each links to its code and a reproducible report.</p>
   </div>
 </section>
 
@@ -384,8 +384,8 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
 <section id="projects">
   <div class="wrap">
     <div class="kicker">Selected work</div>
-    <h2>Two projects you can try right now</h2>
-    <p class="sub">Both run in your browser. No install, no login. Press the button on each to open it right here.</p>
+    <h2>Three projects you can try right now</h2>
+    <p class="sub">Each runs in your browser. No install, no login. Press the button on each to open it right here.</p>
 
     <article class="project reveal">
       <div class="p-head">
@@ -447,6 +447,38 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
             <div class="launch"><button data-src="https://aayshinde.github.io/rag-support-insights/" data-target="m2">▶ Try it here</button></div>
           </div>
           <p class="caption">The page is built from the project's real measured results, including its failure analysis.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="p-head">
+        <span class="tag">CLINICAL TRIALS · RISK MODELLING</span>
+        <h3>TrialScope: Clinical-Trial Risk Prediction</h3>
+        <p class="thirty"><b>In 30 seconds:</b> a tool that looks at a clinical trial the day it starts and estimates how likely it is to be stopped early or run late, then shows why. You can even edit a trial's eligibility rules and watch the estimate move.</p>
+      </div>
+      <div class="p-body">
+        <div>
+          <div class="facts">
+            <div class="fact"><b>Problem</b><span>Trials that stop early or drag on cost sponsors a great deal, and the warning signs are buried in registry text.</span></div>
+            <div class="fact"><b>Built</b><span>A <strong>dbt + DuckDB</strong> pipeline over <strong>30,000</strong> real ClinicalTrials.gov trials, calibrated <strong>XGBoost</strong> and survival models with <strong>SHAP</strong> explanations, and a dashboard with a what-if tool and a plain-English assistant (free local LLM).</span></div>
+            <div class="fact"><b>Result</b><span><strong>0.71 AUROC</strong> on 2017-2019 trials it never saw (simple baseline 0.64). The riskiest <strong>10%</strong> of trials hold <strong>27%</strong> of the eventual failures. It is a ranking aid, not a forecast for any single trial.</span></div>
+          </div>
+          <ul class="decisions">
+            <li>Uses only what is known when a trial starts. A deliberately leaky version scores 0.82, which is shown to explain why that number would mislead</li>
+            <li>Trained on earlier years, tested on later ones, with calibration and a per-year backtest</li>
+            <li>The assistant runs free on a local model; without one the dashboard still answers with SQL</li>
+          </ul>
+          <div class="chips"><span class="chip">XGBoost</span><span class="chip">lifelines</span><span class="chip">SHAP</span><span class="chip">dbt</span><span class="chip">DuckDB</span><span class="chip">Prefect</span><span class="chip">LangGraph</span><span class="chip">Streamlit</span><span class="chip">Ollama</span></div>
+          <div class="links"><a class="btn primary" href="https://trialscope-6ysgwfp6gstc7h7v8gxkan.streamlit.app/" target="_blank" rel="noopener">Open full demo ↗</a><a class="btn" href="https://github.com/aayshinde/trialscope" target="_blank" rel="noopener">Code on GitHub</a></div>
+        </div>
+        <div>
+          <div class="media" id="m3">
+            <img src="assets/trialscope-demo.png" alt="Screenshot of the TrialScope dashboard: 30,000 trials analysed, 0.71 out-of-time AUROC, termination rate by therapeutic area and the highest-risk active trials" loading="lazy">
+            <span class="badge-live">LIVE DEMO</span>
+            <div class="launch"><button data-src="https://trialscope-6ysgwfp6gstc7h7v8gxkan.streamlit.app/?embed=true" data-target="m3">▶ Try it here</button></div>
+          </div>
+          <p class="caption">Real public data, tested on later years than it trained on. The hosted app may take a few seconds to wake up.</p>
         </div>
       </div>
     </article>
@@ -715,7 +747,7 @@ const a = (t,u) => `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
 const go = id => document.getElementById(id).scrollIntoView({behavior:reduced?"auto":"smooth"});
 const CMD = {
   help(){ L('<span class="c-hd">Commands</span>');
-    [["whoami","who I am"],["about","the short version"],["projects","my two main projects"],["demo failure | rag","open a live demo"],["experience","where I have worked"],["skills","my toolbox"],["education","degrees and certifications"],["resume","open my resume (PDF)"],["contact","how to reach me"],["theme","toggle light or dark"],["clear","clear the screen"]]
+    [["whoami","who I am"],["about","the short version"],["projects","my main projects"],["demo failure | rag | trials","open a live demo"],["experience","where I have worked"],["skills","my toolbox"],["education","degrees and certifications"],["resume","open my resume (PDF)"],["contact","how to reach me"],["theme","toggle light or dark"],["clear","clear the screen"]]
       .forEach(([c,d])=>L(`  <span class="c-key">${c.padEnd(20)}</span><span class="c-dim">${d}</span>`)); },
   whoami(){ L("Ayush Shinde, AI/ML Engineer. GenAI and classical ML for financial services and manufacturing."); },
   about(){ L("I build ML systems that hold up when people rely on them.");
@@ -729,11 +761,16 @@ const CMD = {
     L('<span class="c-hd">2. RAG Support Insights &amp; LLM Evaluation</span>');
     L("   Support-ticket triage that escalates to a human when its evidence is weak.");
     L('   <span class="c-ok">91.4%</span> correct on what it answers, <span class="c-ok">98%</span> of out-of-scope messages escalated.');
-    L("   → "+a("live demo","https://aayshinde.github.io/rag-support-insights/")+" · "+a("code","https://github.com/aayshinde/rag-support-insights")); },
+    L("   → "+a("live demo","https://aayshinde.github.io/rag-support-insights/")+" · "+a("code","https://github.com/aayshinde/rag-support-insights"));
+    L('<span class="c-hd">3. TrialScope: Clinical-Trial Risk Prediction</span>');
+    L("   Estimates which clinical trials will stop early or run late, and explains why. Free local LLM assistant.");
+    L('   <span class="c-ok">0.71</span> AUROC on unseen trials, riskiest 10% hold <span class="c-ok">27%</span> of failures. A leaky version scores 0.82 and is shown to explain why.');
+    L("   → "+a("live demo","https://trialscope-6ysgwfp6gstc7h7v8gxkan.streamlit.app/")+" · "+a("code","https://github.com/aayshinde/trialscope")); },
   demo(args){ const w = (args[0]||"").toLowerCase();
     if(w==="failure"){ L("Opening the failure-agent demo…","c-dim"); setTimeout(()=>{ go("projects"); $("#m1 .launch button")?.click(); },300); }
     else if(w==="rag"){ L("Opening the RAG demo…","c-dim"); setTimeout(()=>{ go("projects"); $("#m2 .launch button")?.click(); },300); }
-    else L('usage: demo failure | demo rag',"c-warn"); },
+    else if(w==="trials"){ L("Opening the TrialScope demo…","c-dim"); setTimeout(()=>{ go("projects"); $("#m3 .launch button")?.click(); },300); }
+    else L('usage: demo failure | demo rag | demo trials',"c-warn"); },
   experience(){ L('<span class="c-hd">JPMorgan Chase</span> <span class="c-dim">AI/ML Engineer · Feb 2026 – now</span>');
     L("  RAG assistant (Bedrock, OpenSearch), gradient-boosted risk classifiers, PySpark + Airflow + MLflow pipelines.");
     L('<span class="c-hd">Siemens</span> <span class="c-dim">ML Engineer · Aug 2022 – Jul 2024</span>');
