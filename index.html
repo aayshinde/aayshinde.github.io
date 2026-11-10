@@ -388,8 +388,8 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
     <h2>Three things I do well</h2>
     <p class="sub">Whether it is incident management, maintenance, support or clinical trials, the work usually comes down to the same three skills.</p>
     <div class="grid3">
-      <div class="card reveal"><div class="ico">🔌</div><h3>Connect agents to enterprise systems, safely</h3><p>At ServiceNow I built FastAPI services that let LLM agents handle incident intake, asset lookups and ticket updates, with RBAC, validation checks and human approval before any destructive action.</p></div>
-      <div class="card reveal"><div class="ico">🧪</div><h3>Evaluate before you deploy</h3><p>A 230-scenario suite tests for wrong classifications, missing relationships and unsafe actions before release. My RAG project goes further: it abstains and hands off to a person when its evidence is weak.</p></div>
+      <div class="card reveal"><div class="ico">🔌</div><h3>Connect agents to enterprise systems, safely</h3><p>At ServiceNow I work with customer engineering teams to turn their incident management requirements into FastAPI integrations between LLM agents and ServiceNow APIs, with RBAC, validation checks and human approval workflows for sensitive agent actions.</p></div>
+      <div class="card reveal"><div class="ico">🧪</div><h3>Evaluate before you deploy</h3><p>A 230-scenario suite covering incident classification, CMDB dependency retrieval and agent tool execution validates reliability and safety before production deployment. My RAG project goes further: it abstains and hands off to a person when its evidence is weak.</p></div>
       <div class="card reveal"><div class="ico">🧱</div><h3>Make it work on messy, real data</h3><p>CMDB asset graphs at ServiceNow, 500GB+ of IoT sensor data at Siemens, and a live public clinical-trial registry in TrialScope, with change history and data tests that fail the build on leakage.</p></div>
     </div>
   </div>
@@ -567,10 +567,10 @@ footer{padding:30px 0 50px;color:var(--muted);font-size:13.5px;text-align:center
         <h3>Forward Deployed Engineer · <span class="org">ServiceNow</span></h3>
         <div class="when">Feb 2026 – Present · Texas</div>
         <ul>
-          <li>Implemented <b>FastAPI services</b> connecting LLM agents to ServiceNow APIs for P1/P2 incident intake, CMDB asset lookups and ticket updates, reducing incident MTTR from 45 minutes to under 10 minutes.</li>
-          <li>Designed a <b>graph-aware RAG workflow</b> using CMDB asset relationships to retrieve relevant infrastructure context during incident triage, achieving 92% classification accuracy.</li>
-          <li>Added <b>RBAC</b>, custom validation checks and human approval for destructive agent actions to prevent unauthorized production changes.</li>
-          <li>Established a <b>230-scenario evaluation suite</b> covering incident classification, CMDB dependency retrieval and agent tool execution to test for incorrect classifications, missing asset relationships and unsafe actions before deployment.</li>
+          <li>Collaborated with external customer engineering teams to understand incident management requirements and built <b>FastAPI integrations</b> connecting LLM agents with ServiceNow APIs, reducing P1/P2 incident MTTR from 45 minutes to under 10 minutes.</li>
+          <li>Designed a <b>graph-aware RAG workflow</b> using ServiceNow CMDB asset relationships to retrieve infrastructure context for incident triage, achieving 92% classification accuracy.</li>
+          <li>Implemented <b>RBAC</b>, custom validation checks and human approval workflows for sensitive agent actions to meet enterprise security requirements and reduce the risk of unauthorized production changes.</li>
+          <li>Established a <b>230-scenario evaluation suite</b> covering incident classification, CMDB dependency retrieval and agent tool execution to validate reliability and safety before production deployment.</li>
         </ul>
       </div>
       <div class="job reveal">
@@ -824,7 +824,7 @@ const CMD = {
     else if(w==="trials"){ L("Opening the TrialScope demo…","c-dim"); setTimeout(()=>{ go("projects"); $("#m3 .launch button")?.click(); },300); }
     else L('usage: demo guardrails | demo rag | demo trials | demo failure',"c-warn"); },
   experience(){ L('<span class="c-hd">ServiceNow</span> <span class="c-dim">Forward Deployed Engineer · Feb 2026 – now</span>');
-    L("  FastAPI agent integrations (MTTR 45 min to under 10), graph-aware RAG (92% accuracy), RBAC + human approval, 230-scenario eval suite.");
+    L("  FastAPI agent integrations (MTTR 45 min to under 10), graph-aware RAG (92% accuracy), RBAC + human approval workflows, 230-scenario eval suite.");
     L('<span class="c-hd">Siemens</span> <span class="c-dim">ML Engineer · Aug 2022 – Jul 2024</span>');
     L("  Predictive maintenance (LSTM, XGBoost), 500GB+ IoT pipelines, containerized inference on Azure AKS, CI/CD."); },
   skills(){ [["code","Python SQL FastAPI REST-APIs ServiceNow-REST-APIs"],["genai","LLM-agents tool-calling RAG graph-aware-RAG LangChain LangGraph FAISS Qdrant Guardrails-AI semantic-search LLM-evaluation"],["ml","PyTorch scikit-learn XGBoost LSTM anomaly-detection time-series feature-engineering"],["cloud","AWS(S3,EMR,SageMaker) Azure-AKS Docker Kubernetes Git GitHub-Actions CI/CD MLflow"],["data","PostgreSQL MySQL PySpark dbt DuckDB ServiceNow-CMDB RBAC human-in-the-loop Tableau"]]
